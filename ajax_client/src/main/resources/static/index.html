@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript"></script>
+</head>
+<body>
+    <a href="#" onclick="toServer()">设置请求头来解决跨域</a>
+    <a href="#" onclick="toServer1()">使用jsonp来解决跨域</a>
+    <script>
+        function toServer(){
+            $.getJSON("http://localhost:8081/ajax/test",function(result){
+                console.log(result);
+            });
+        }
+        function toServer1(){
+            $.ajax({
+                url:"http://localhost:8081/ajax/test",
+                dataType:"jsonp",
+                success:function (result) {
+                    console.log(result);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
